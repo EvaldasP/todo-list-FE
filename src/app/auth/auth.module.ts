@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [LoginComponent],
-  imports: [ReactiveFormsModule],
-  providers: [],
+  imports: [ReactiveFormsModule, HttpClientModule],
+  providers: [AuthService],
 })
 export class AuthModule {}

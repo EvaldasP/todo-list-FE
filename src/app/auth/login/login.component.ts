@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+
+interface loginDTO {
+  username: string;
+  password: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -12,11 +18,19 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private readonly _authService: AuthService) {}
 
   ngOnInit(): void {}
 
+  get formValue(): loginDTO {
+    return this.loginForm.value;
+  }
+
   public onLogin() {
-    console.log(this.loginForm.value);
+    this._authService
+      .login(this.formValue.username, this.formValue.password)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }

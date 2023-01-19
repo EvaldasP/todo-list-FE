@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthApiService } from './auth-api.service';
 
@@ -8,12 +8,25 @@ export class AuthService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   public isLoggedIn$ = this._isLoggedIn$.asObservable();
 
-  constructor(private readonly _authApiService: AuthApiService) {
+  constructor(
+    private readonly _authApiService: AuthApiService,
+    private readonly _jwtHelper: JwtHelperService
+  ) {
     const token = localStorage.getItem('auth_token');
-    this._isLoggedIn$.next(!!token);
+
+    try {
+      this._isLoggedIn$.next(!this._jwtHelper.isTokenExpired(token));
+    } catch (error) {
+      localStorage.removeItem('auth_token');
+      this._isLoggedIn$.next(false);
+    }
   }
 
-  login(
+  public get subjectValue() {
+    return this._isLoggedIn$.value;
+  }
+
+  public login(
     username: string,
     password: string
   ): Observable<{ access_token: string }> {

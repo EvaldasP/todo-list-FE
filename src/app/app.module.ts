@@ -5,10 +5,18 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, AuthModule, DashboardModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule,
+    DashboardModule,
+    SharedModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

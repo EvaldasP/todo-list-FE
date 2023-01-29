@@ -1,1 +1,15 @@
-<p>shared-modal works!</p>
+<ng-template #modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Labas</h5>
+  </div>
+  <div class="modal-body">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="close()"
+    ></button>
+  </div>
+</ng-template>

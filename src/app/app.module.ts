@@ -14,7 +14,6 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     AuthModule,
     DashboardModule,
-    SharedModule,
     NgbModule,
   ],
   providers: [],

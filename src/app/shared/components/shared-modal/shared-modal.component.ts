@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Injectable,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-shared-modal',
+  selector: 'shared-modal',
   templateUrl: './shared-modal.component.html',
-  styleUrls: ['./shared-modal.component.scss']
+  styleUrls: ['./shared-modal.component.scss'],
 })
+@Injectable()
 export class SharedModalComponent implements OnInit {
+  @ViewChild('modal') private modalContent: TemplateRef<SharedModalComponent>;
+  private modalRef: NgbModalRef;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  open(): void {
+    this.modalRef = this.modalService.open(this.modalContent);
+    // this.modalRef.result.then(
+    //   () => {
+    //     console.log('When user closes');
+    //   },
+    //   () => {
+    //     console.log('Backdrop click');
+    //   }
+    // );
   }
 
+  async close() {
+    this.modalRef.close();
+  }
 }

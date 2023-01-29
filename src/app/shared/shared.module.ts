@@ -5,5 +5,6 @@ import { SharedModalComponent } from './components/shared-modal/shared-modal.com
 @NgModule({
   declarations: [SharedModalComponent],
   imports: [CommonModule],
+  exports: [SharedModalComponent],
 })
 export class SharedModule {}

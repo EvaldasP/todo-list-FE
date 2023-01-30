@@ -1,26 +1,7 @@
-<article>
-  <form>
-    <div class="grid">
-      <label for="title">
-        Todo Title
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Title"
-          required
-        />
-      </label>
-    </div>
-
-    <label for="description">Todo Description</label>
-    <textarea id="description"></textarea>
-
-    <button type="submit">Add Todo</button>
-  </form>
+<div class="d-flex justify-content-center mt-5">
   <shared-modal #modal
     ><form><label for="">hello</label> <input type="text" name="" id="" /></form
   ></shared-modal>
 
-  <button (click)="openModal()"></button>
-</article>
+  <button (click)="openModal()">Add Todo</button>
+</div>

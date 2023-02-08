@@ -1,7 +1,16 @@
 <div class="d-flex justify-content-center mt-5">
-  <shared-modal #modal
-    ><form><label for="">hello</label> <input type="text" name="" id="" /></form
-  ></shared-modal>
+  <shared-modal [title]="'Add Todo'" [buttonTitle]="'Submit'" #modal
+    ><form>
+      <div class="form-group">
+        <label for="todoTitle">Todo Title</label>
+        <input class="form-control" placeholder="Enter todo title" />
+      </div>
+      <div class="form-group">
+        <label for="todoDescription">Todo Description</label>
+        <textarea class="form-control" rows="3"></textarea>
+      </div>
+    </form>
+  </shared-modal>
 
   <button (click)="openModal()">Add Todo</button>
 </div>

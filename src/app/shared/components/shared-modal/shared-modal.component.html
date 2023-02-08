@@ -6,7 +6,12 @@
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="close()">
+    <button
+      [disabled]="isDisabled"
+      type="button"
+      class="btn btn-primary"
+      (click)="onClose()"
+    >
       {{ buttonTitle }}
     </button>
   </div>

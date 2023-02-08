@@ -1,18 +1,33 @@
-<div class="d-flex justify-content-center mt-5">
-  <shared-modal [title]="'Add Todo'" [buttonTitle]="'Submit'" #modal
-    ><form>
+<div class="d-flex justify-content-center">
+  <shared-modal
+    [title]="'Add Todo'"
+    [buttonTitle]="'Submit'"
+    (submit)="onSubmitAddTodoForm()"
+    (close)="onClose()"
+    [isDisabled]="addTodo.status === 'INVALID'"
+    #modal
+  >
+    <form [formGroup]="addTodo">
       <div class="form-group">
         <label for="todoTitle">Todo Title</label>
-        <input class="form-control" placeholder="Enter todo title" />
+        <input
+          formControlName="todoTitle"
+          class="form-control"
+          placeholder="Enter todo title"
+        />
       </div>
       <div class="form-group">
         <label for="todoDescription">Todo Description</label>
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea
+          formControlName="todoDescription"
+          class="form-control"
+          rows="3"
+        ></textarea>
       </div>
     </form>
   </shared-modal>
 
-  <button type="button" class="btn btn-success" (click)="openModal()">
+  <button type="button" class="btn btn-success mt-5" (click)="openModal()">
     Add Todo
   </button>
 </div>

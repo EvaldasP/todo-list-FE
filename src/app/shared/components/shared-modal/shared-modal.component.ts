@@ -1,6 +1,7 @@
 import {
   Component,
   Injectable,
+  Input,
   OnInit,
   TemplateRef,
   ViewChild,
@@ -14,7 +15,10 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 })
 @Injectable()
 export class SharedModalComponent implements OnInit {
-  @ViewChild('modal') private modalContent: TemplateRef<SharedModalComponent>;
+  @Input() title: string;
+  @Input() buttonTitle: string;
+  @ViewChild('modal')
+  private modalContent: TemplateRef<SharedModalComponent>;
   private modalRef: NgbModalRef;
 
   constructor(private modalService: NgbModal) {}

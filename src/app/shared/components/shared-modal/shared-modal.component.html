@@ -1,15 +1,13 @@
-<ng-template #modal>
+<ng-template class="modal" #modal>
   <div class="modal-header">
-    <h5 class="modal-title">Labas</h5>
+    <h5 class="modal-title">{{ title }}</h5>
   </div>
   <div class="modal-body">
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-secondary"
-      (click)="close()"
-    ></button>
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+      {{ buttonTitle }}
+    </button>
   </div>
 </ng-template>

@@ -5,43 +5,24 @@
   justify-content: center;
 }
 
-.form-control {
-  background-color: transparent;
-  color: white;
-  border: 1px solid #cd5888;
-}
-
-.form-control:focus {
-  color: white;
-  background-color: transparent;
-  border-color: rgba(205, 88, 136, 1);
-  box-shadow: 0 0 0 0.2rem rgba(205, 88, 136, 0.34);
-}
-
-.btn {
-  background: rgba(63, 220, 108, 0.34);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
-  border: 1px solid rgba(63, 220, 108, 0.17);
-}
-
-.btn:hover {
-  background: rgba(63, 220, 108, 0.6);
-  width: 10rem;
-}
-
 .wrapper {
   border-radius: 20px;
-  background: rgba(205, 88, 136, 0.34);
+  background: rgba(205, 88, 136, 0.1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
-  border: 1px solid rgba(205, 88, 136, 0.3);
+  border: 1px solid rgba(205, 88, 136, 0.1);
 }
 
 form {
   width: 400px;
+}
+
+button {
+  width: 100px;
+}
+
+h2 {
+  color: #ffff;
 }
